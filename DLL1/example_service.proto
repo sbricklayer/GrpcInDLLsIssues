@@ -1,0 +1,12 @@
+﻿syntax = "proto3";
+
+package StaticGrpcExample;
+
+// Provides methods regarding job management.
+service ExampleService {
+	rpc ExampleRpc(ExampleRpcRequest) returns (ExampleRpcResponse);
+}
+
+message ExampleRpcRequest {}
+
+message ExampleRpcResponse {}
