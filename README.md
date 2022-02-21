@@ -22,7 +22,7 @@ md .build
 cd .build
 cmake .. -G "Visual Studio 16 2019" -DgRPC_BUILD_GRPC_PYTHON_PLUGIN=OFF -DgRPC_BUILD_GRPC_PHP_PLUGIN=OFF -DgRPC_BUILD_GRPC_RUBY_PLUGIN=OFF -DgRPC_BUILD_GRPC_OBJECTIVE_C_PLUGIN=OFF -DgRPC_BUILD_GRPC_NODE_PLUGIN=OFF -DgRPC_BUILD_GRPC_CSHARP_PLUGIN=OFF -DgRPC_BUILD_CSHARP_EXT=OFF -DABSL_ENABLE_INSTALL=ON -DCMAKE_INSTALL_PREFIX="c:/temp/grpc"
 cmake --build . --config Release
-cmake --install
+cmake --install .
 ```
 
 ### Build this repo and run the example
