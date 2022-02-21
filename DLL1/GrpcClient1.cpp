@@ -3,7 +3,7 @@
 #include "GrpcClient1.h"
 #include <GrpcClientContextProvider.h>
 
-//#define CROSS_DLL_CLIENT_CONTEXT_USE
+#define CROSS_DLL_CLIENT_CONTEXT_USE
 
 void callExampleService()
 {
