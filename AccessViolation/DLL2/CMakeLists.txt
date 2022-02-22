@@ -21,4 +21,4 @@ target_link_libraries(DLL2
         gRPC::grpc++
 )
 
-install(TARGETS DLL2 DESTINATION "bin")
+install(TARGETS DLL2 DESTINATION "bin/AccessViolation")

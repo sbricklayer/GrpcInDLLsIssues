@@ -39,4 +39,4 @@ get_target_property(grpc_cpp_plugin_location gRPC::grpc_cpp_plugin LOCATION)
 protobuf_generate(TARGET DLL1 LANGUAGE cpp)
 protobuf_generate(TARGET DLL1 LANGUAGE grpc GENERATE_EXTENSIONS .grpc.pb.h .grpc.pb.cc PLUGIN "protoc-gen-grpc=${grpc_cpp_plugin_location}")
 
-install(TARGETS DLL1 DESTINATION "bin")
+install(TARGETS DLL1 DESTINATION "bin/AccessViolation")

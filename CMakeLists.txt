@@ -12,6 +12,9 @@ set (absl_DIR "${LIBGRPC_DIR}/lib/cmake/absl")
 set (gRPC_DIR "${LIBGRPC_DIR}/lib/cmake/grpc")
 find_package(gRPC CONFIG REQUIRED)
 
-add_subdirectory(DLL1)
-add_subdirectory(DLL2)
-add_subdirectory(TestProgram)
+add_subdirectory(AccessViolation/DLL1)
+add_subdirectory(AccessViolation/DLL2)
+add_subdirectory(AccessViolation/AccessViolationExample)
+
+add_subdirectory(Deadlock/DLL3)
+add_subdirectory(Deadlock/DeadlockExample)
