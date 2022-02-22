@@ -20,6 +20,11 @@ ExampleService2Accessor::ExampleService2Accessor() : pimpl_(std::make_unique<Imp
 {
 }
 
+ExampleService2Accessor::~ExampleService2Accessor()
+{
+  std::cout << "Destructor ~ExampleService2Accessor\n";
+}
+
 ExampleService2Accessor& ExampleService2Accessor::getInstance()
 {
   static ExampleService2Accessor instance;

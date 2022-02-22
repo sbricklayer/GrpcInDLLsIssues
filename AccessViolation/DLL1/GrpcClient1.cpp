@@ -14,11 +14,11 @@ void callExampleService()
   StaticGrpcExample::ExampleRpcResponse response;
 
 #ifdef CROSS_DLL_CLIENT_CONTEXT_USE
-  //This leads to an access violation
+  std::cout << "There will be an access violation when this function scope ends\n";
   DLL2::ClientContextProvider client_context_provider; 
   example_service_client->ExampleRpc(&client_context_provider.get_client_context(), request, &response);
 #else
-  //This approach works fine
+  std::cout << "Using a ClientContext object that is declared in this DLL is fine.\n";
   grpc::ClientContext client_context;
   example_service_client->ExampleRpc(&client_context, request, &response);
 #endif
