@@ -1,5 +1,4 @@
 #include <grpc++/create_channel.h>
-#include <example_service2.grpc.pb.h>
 #include "GrpcClient2.h"
 
 class ExampleService2Accessor::Impl
@@ -8,12 +7,14 @@ class ExampleService2Accessor::Impl
 public:
   Impl()
   {
-    auto channel_ptr = CreateChannel("localhost:12010",grpc::InsecureChannelCredentials());
-    example_service_client_ = ExampleService2::NewStub(channel_ptr);
+    channel_ptr_ = CreateChannel("localhost:12010",grpc::InsecureChannelCredentials());
   }
 
 private:
-  std::unique_ptr<ExampleService2::Stub> example_service_client_;
+  std::shared_ptr<grpc::Channel> channel_ptr_;
+  //This class would usually hold a unique_ptr to a gRPC client (stub)
+  //and the same behavior is observed in that case, but it turns out
+  //that the channel object is actually sufficient to trigger the issue.
 };
 
 ExampleService2Accessor::ExampleService2Accessor() : pimpl_(std::make_unique<Impl>())
