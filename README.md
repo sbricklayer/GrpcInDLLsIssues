@@ -2,8 +2,12 @@
 
 This repository is supposed to document issues that are observed when trying to use gRPC (built as static libraries) in a project composed of DLLs under Windows.
 
-Currently, there is only a single example, where one DLL defines a class, that creates a grpc::ClientContext, and the other DLL creates an instance of that class and passes the ClientContext to a gRPC call, which results in an access violation later at the destruction of the ClientContext.
-The repository does not contain any implementation of a server component since an actual connection is not required to trigger the issue and this approach simplifies the example. Feel free to uncomment the define in GrpClient1.cpp to switch to an implementation that does not result in any issues to verify, that this is not about the missing server part.
+Currently, there are two examples:
+### Access violation on cross-DLL use of ClientContext
+One DLL defines a class, that creates a grpc::ClientContext, and the other DLL creates an instance of that class and passes the ClientContext to a gRPC call, which results in an access violation later at the destruction of the ClientContext. The repository does not contain any implementation of a server component since an actual connection is not required to trigger the issue and this approach simplifies the example. Feel free to uncomment the define in GrpClient1.cpp to switch to an implementation that does not result in any issues to verify, that this is not about the missing server part.
+
+### Infinite block on shutdown using singleton to access gRPC service
+A DLL provides a singleton of a class that wraps the gRPC service client (using the PIMPL idiom). The executable gets an instance of the singleton (actually nothing happens beyond instantiation of service client) and the process blocks indefinitely on shutdown.
 
 ## Build
 The project as well as gRCP were built with Visual Studio 2019.
@@ -33,4 +37,4 @@ After successful build and install of gRPC as described above, you can build thi
 * Open the folder in Visual Studio 2019
 * Generate the cmake cache
 * Build
-* Run the target _TestProgram.exe (Install)_
+* Run the target _AccessViolationExample.exe (Install)_ or _InfiniteBlockExample.exe (Install)_
