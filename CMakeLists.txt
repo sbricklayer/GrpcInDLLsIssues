@@ -16,5 +16,5 @@ add_subdirectory(AccessViolation/DLL1)
 add_subdirectory(AccessViolation/DLL2)
 add_subdirectory(AccessViolation/AccessViolationExample)
 
-add_subdirectory(Deadlock/DLL3)
-add_subdirectory(Deadlock/DeadlockExample)
+add_subdirectory(InfiniteBlock/DLL3)
+add_subdirectory(InfiniteBlock/InfiniteBlockExample)

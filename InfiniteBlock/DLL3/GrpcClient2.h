@@ -10,7 +10,7 @@ public:
   ExampleService2Accessor();
   ~ExampleService2Accessor();
   static ExampleService2Accessor& getInstance();
-  //void callExampleService(); //we could make calls to the gRPC service, but they are not required to demonstrate the deadlock on destruction
+  //void callExampleService(); //we could make calls to the gRPC service, but they are not required to demonstrate the infinite block on destruction
 
 private:
   class Impl;

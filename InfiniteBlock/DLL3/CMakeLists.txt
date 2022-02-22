@@ -39,4 +39,4 @@ get_target_property(grpc_cpp_plugin_location gRPC::grpc_cpp_plugin LOCATION)
 protobuf_generate(TARGET DLL3 LANGUAGE cpp)
 protobuf_generate(TARGET DLL3 LANGUAGE grpc GENERATE_EXTENSIONS .grpc.pb.h .grpc.pb.cc PLUGIN "protoc-gen-grpc=${grpc_cpp_plugin_location}")
 
-install(TARGETS DLL3 DESTINATION "bin/Deadlock")
+install(TARGETS DLL3 DESTINATION "bin/InfiniteBlock")
