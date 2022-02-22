@@ -33,4 +33,4 @@ After successful build and install of gRPC as described above, you can build thi
 * Open the folder in Visual Studio 2019
 * Generate the cmake cache
 * Build
-* Run the target _TestProgram.exe (Install)_
+* Run the target _AccessViolationExample.exe (Install)_
