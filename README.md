@@ -7,15 +7,16 @@ Currently, there is only a single example, where one DLL defines a class, that c
 ## Build
 The project as well as gRCP were built with Visual Studio 2019.
 
+### Build gRPC
 To build gRPC, these were the steps that were used
-### Clone gRPC repo including submodules
+#### Clone gRPC repo including submodules
 ```
 git clone https://github.com/grpc/grpc
 cd grpc
 git submodule update --init
 ```
 
-### Build gRPC using cmake with Visual Studio 2019 and limited to the required components
+#### Build gRPC using cmake with Visual Studio 2019 and limited to the required components
 The following will install gRPC in the folder `c:\temp\grpc` (last parameter in the long config command) which is also used in the cmake file of this repo. Feel free to change it at both locations. 
 ```
 md .build
@@ -26,6 +27,7 @@ cmake --install .
 ```
 
 ### Build this repo and run the example
+After successful build and install of gRPC as described above, you can build this repository.
 * Clone this repository
 * Open the folder in Visual Studio 2019
 * Generate the cmake cache
