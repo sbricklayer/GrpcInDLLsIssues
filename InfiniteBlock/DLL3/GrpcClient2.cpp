@@ -17,12 +17,13 @@ private:
   //that the channel object is actually sufficient to trigger the issue.
 };
 
-ExampleService2Accessor::ExampleService2Accessor() : pimpl_(std::make_unique<Impl>())
+ExampleService2Accessor::ExampleService2Accessor() : pimpl_(new Impl())
 {
 }
 
 ExampleService2Accessor::~ExampleService2Accessor()
 {
+  delete pimpl_;
   std::cout << "Destructor ~ExampleService2Accessor\n";
 }
 
