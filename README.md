@@ -26,6 +26,7 @@ cmake --install .
 ```
 
 ### Build this repo and run the example
+* Clone this repository
 * Open the folder in Visual Studio 2019
 * Generate the cmake cache
 * Build
