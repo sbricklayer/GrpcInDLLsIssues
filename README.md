@@ -3,6 +3,7 @@
 This repository is supposed to document issues that are observed when trying to use gRPC (built as static libraries) in a project composed of DLLs under Windows.
 
 Currently, there is only a single example, where one DLL defines a class, that creates a grpc::ClientContext, and the other DLL creates an instance of that class and passes the ClientContext to a gRPC call, which results in an access violation later at the destruction of the ClientContext.
+The repository does not contain any implementation of a server component since an actual connection is not required to trigger the issue and this approach simplifies the example. Feel free to uncomment the define in GrpClient1.cpp to switch to an implementation that does not result in any issues to verify, that this is not about the missing server part.
 
 ## Build
 The project as well as gRCP were built with Visual Studio 2019.
