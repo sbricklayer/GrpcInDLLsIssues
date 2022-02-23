@@ -7,7 +7,7 @@ Currently, there are two examples:
 One DLL defines a class, that creates a grpc::ClientContext, and the other DLL creates an instance of that class and passes the ClientContext to a gRPC call, which results in an access violation later at the destruction of the ClientContext. The repository does not contain any implementation of a server component since an actual connection is not required to trigger the issue and this approach simplifies the example. Feel free to uncomment the define in GrpClient1.cpp to switch to an implementation that does not result in any issues to verify, that this is not about the missing server part.
 
 ### Infinite block on shutdown using singleton to access gRPC service
-(This one looks more like a general bug than an issue due to DLL usage)
+(This one looks more like a general bug than an issue due to DLL usage. I created a [bug report](https://github.com/grpc/grpc/issues/28949) for that)
 A DLL provides a singleton of a class that wraps the gRPC service client (using the PIMPL idiom). The executable gets an instance of the singleton (actually nothing happens beyond instantiation of a channel object) and the process blocks indefinitely on shutdown. This one might have a completely different background than the other example (gRPC libs are only linked into one DLL, so no duplicate static gRPC data) and the result also seems to be flaky: If the environment variables GRPC_VERBOSITY=debug and GRPC_TRACE=all are set to enable debugging, the process ends without issues.
 
 ## Build
